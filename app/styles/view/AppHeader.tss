@@ -1,0 +1,10 @@
+
+".container" : {
+  
+}
+'Label': {
+	color:"white",
+	font:{fontWeight: 'bold',fontSize:20},
+	bottom:15
+	
+}

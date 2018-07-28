@@ -1,0 +1,24 @@
+
+".container" : {
+  backgroundImage:"/images/Homepage/background.png"
+}
+
+"#lblTitle":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	//color:"#ffffff",
+	width:"50%",
+	top:10,
+	//backgroundColor:"red",
+	font:{fontSize:15,fontFamily:"aa"},
+	text:"الجمعة ١٣ اغسطس ٢٠١٨"
+}
+
+"#lbltime":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	//color:"#ffffff",
+	width:"50%",
+	top:3,
+	//backgroundColor:"red",
+	font:{fontSize:15,fontFamily:"aa"},
+	text:"٢٥ شعبان ١٤٣٩"
+}

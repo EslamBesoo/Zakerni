@@ -1,0 +1,20 @@
+{
+	"global": {},
+	"env:development": {},
+	"env:test": {},
+	"env:production": {},
+	"os:android": {},
+	"os:blackberry": {},
+	"os:ios": {},
+	"os:mobileweb": {},
+	"os:windows": {},
+	"dependencies": {"com.mcongrove.toast":"1.0",
+	"com.alcoapps.socialshare": "1.0",
+	"com.javiersr.jsrgallery": "1.0",
+	"com.parallaxcontainer.blitz": "1.0",
+	"nl.fokkezb.loading": "*",
+	 "ytPlayer": "1.0",
+	 "dk.napp.audioplayer": "1.0",
+	 "com.mattmcfarland.fontawesome":"1.7.3"
+	}
+}

@@ -1,0 +1,25 @@
+
+".container" : {
+  
+}
+
+
+"#ptView":{
+	height:"37%" ,
+	top:"3%" ,
+	backgroundColor:"#f8f9de" ,
+	width:"90%",
+	borderWidth:1,
+	borderRadius:7
+}
+
+"#lblTitle":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	color:"#ffffff",
+	width:"50%",
+	right:40,
+	//backgroundColor:"red",
+	font:{fontSize:16},
+	text:"إذاعات قرآنية"
+	//text:"القراء"
+}

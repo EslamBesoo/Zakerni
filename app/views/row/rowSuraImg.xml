@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container">
+		<ImageView id="img" width="110%" height="110%" backgroundColor="yellow" top="-5%"></ImageView>
+	</View>
+</Alloy>

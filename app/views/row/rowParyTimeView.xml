@@ -1,0 +1,8 @@
+<Alloy>
+	<TableViewRow class="container">
+		<View id="viewRow">
+			<Label  id="lblTitle"></Label>
+			<Label  id="lblTime"></Label>
+		</View>
+	</TableViewRow>
+</Alloy>

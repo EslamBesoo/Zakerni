@@ -1,0 +1,9 @@
+<Alloy>
+	<Window class="container">
+	<View class="container">
+		<View  top="80">
+		<Require src="/view/radioView" data="true"></Require>
+		</View>
+	</View>
+	</Window>
+</Alloy>

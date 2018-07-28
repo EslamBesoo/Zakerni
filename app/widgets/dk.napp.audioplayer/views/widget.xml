@@ -1,0 +1,8 @@
+<Alloy>
+	<View id="wrap" >
+		<Label id="time" />
+		 <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+		<ImageView id="playStopBtn" onClick="onPlayStopBtnClicked" />
+		<Slider id="scrubBar" />
+	</View>
+</Alloy>

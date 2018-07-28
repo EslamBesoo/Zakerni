@@ -1,0 +1,8 @@
+<Alloy>
+	<TableViewRow class="container" onClick="goRadio">
+		<View id="viewRow">
+			<Label  id="lblTitle"></Label>
+			<Label  id="lblTime"></Label>
+		</View>
+	</TableViewRow>
+</Alloy>

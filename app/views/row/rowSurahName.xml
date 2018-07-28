@@ -1,0 +1,10 @@
+<Alloy>
+	<TableViewRow id="row" width="90%" backgroundColor="#e0e0e0" height="46">
+		<View   width="100%" right="0" height="44" top="0" backgroundColor="#f8f9de">
+			<ImageView id="icon" image="/images/Reading_quran_page/ic_no.shape_unselected.png" ></ImageView>
+		<Label id="lblid" onClick="gotoSurah" ></Label>
+		<Label  id="lblTitle" onClick="gotoSurah" ></Label>
+		</View>
+		<!--<View height="1" width="90%" backgroundColor="#e6e6e6"></View>-->
+	</TableViewRow>
+</Alloy>

@@ -1,0 +1,12 @@
+
+".container" : {
+  backgroundImage:"/images/Homepage/background.png"
+}
+
+"#lblCity":{
+	 objName:" اختر الدولة" ,
+	 text:" اختر الدولة",
+	// backgroundColor:"red",
+	 width:"80%",
+	 right:40
+}

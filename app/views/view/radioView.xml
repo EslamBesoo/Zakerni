@@ -1,0 +1,8 @@
+<Alloy>
+		<View id="ptView" >
+			<View height="40" width="110%" top="0" backgroundColor="#689F38">
+				<Label  id="lblTitle"  ></Label>
+			</View>
+			<TableView id="tbl" top="41" backgroundColor="#f8f9de"></TableView>
+		</View>
+</Alloy>

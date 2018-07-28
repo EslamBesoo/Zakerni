@@ -1,0 +1,7 @@
+<Alloy>
+	<Window class="container" onOpen="doClick">
+	<View class="container">
+	
+	</View>
+	</Window>
+</Alloy>

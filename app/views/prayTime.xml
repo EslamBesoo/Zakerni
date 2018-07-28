@@ -1,0 +1,12 @@
+<Alloy>
+	<Window class="container">
+	<View class="container">
+		<View class="lv" height="70%" backgroundColor="#f8f9de" width="90%">
+			<ImageView id="img" image="/images/Pray_time_page/ic_picture.png" top="10"></ImageView>
+			<Label  id="lblTitle"  ></Label>
+			<Label  id="lbltime"  ></Label>
+		<TableView id="tbl" top="10" backgroundColor="#f8f9de" width="90%"></TableView>
+		</View>
+	</View>
+	</Window>
+</Alloy>

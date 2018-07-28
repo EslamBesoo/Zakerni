@@ -1,0 +1,17 @@
+<Alloy>
+		<View id="ptView" class="lv" >
+			<View height="40" width="110%" top="0" backgroundColor="#689F38">
+				<Label  id="lblTitle"  ></Label>
+			</View>
+			<View height="Titanium.UI.SIZE" width="90%" top="10">
+				<ImageView id="cityInd" image="/images/Pray_settings_page/ic_selected.png" right="0"></ImageView>
+						<ImageView image="/images/Pray_settings_page/ic_drop_menu.png" right="20"></ImageView>
+						<Label className="null" id="lblCity" onClick="getCity" objName=" اختر المدينة" text=" اختر المدينة" class="lblAdd" backgroundColor="#f8f9de"> </Label>
+						<View  class="vl" height="1" backgroundColor="#E0E0E0"></View>
+			</View>
+			<View height="Titanium.UI.SIZE" width="90%" top="10">
+				<ImageView id="gpsInd" image="/images/Pray_settings_page/ic_unselected.png" right="0"></ImageView>
+						<Label id="lblGps" text=" او تحديد عن طريق GPS " backgroundColor="#f8f9de"> </Label>
+			</View>
+		</View>
+</Alloy>

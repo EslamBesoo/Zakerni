@@ -1,0 +1,32 @@
+
+".container" : {
+  
+}
+
+"#lblTitle":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	color:"#212121",
+	width:"50%",
+	right:40,
+	//backgroundColor:"red",
+	font:{fontSize:16}
+}
+
+
+
+"#lblid":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	color:"#212121",
+	width:35,
+	right:1,
+	//bottom:4,
+	//backgroundColor:"yellow",
+	font:{fontSize:12,fontFamily:"xxUthmanicHafs1_Ver09"}
+	
+}
+
+"#icon":{
+	width:40,
+	height:40,
+	right:0
+}

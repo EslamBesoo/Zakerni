@@ -1,0 +1,29 @@
+
+".container" : {
+  height:40,
+  backgroundColor:"#e0e0e0"
+}
+
+"#viewRow":{
+	height:38,
+	bottom:0,
+	backgroundColor:"#f8f9de"
+}
+
+"#lblTitle":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_RIGHT,
+	color:"#212121",
+	width:Titanium.UI.SIZE,
+	right:10,
+	//backgroundColor:"red",
+	font:{fontSize:14}
+}
+
+"#lblTime":{
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_LEFT,
+	color:"#212121",
+	width:Titanium.UI.SIZE,
+	left:10,
+	//backgroundColor:"red",
+	font:{fontSize:14}
+}

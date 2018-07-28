@@ -1,0 +1,22 @@
+
+".container" : {
+  
+}
+
+'#txtSearch': {
+	color:"#424242",
+	backgroundColor:"#f8f9de",
+	borderColor:"#f8f9de",
+	borderWidth:1,
+	font:{fontSize:14},
+	width:"80%",
+	height:40,
+	right:50,
+	textAlign:Alloy.Globals.isRTL
+	
+}
+"#img":{
+	image:"/images/Reading_quran_page/ic_search.png",
+	width:30,
+	right:5
+}

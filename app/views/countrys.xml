@@ -1,0 +1,12 @@
+<Alloy>
+	<Window class="container">
+		<View class="container lv">
+			<ImageView image="/images/Homepage/logo.png"  top="50"></ImageView>
+			<View height="Titanium.UI.SIZE" width="80%" top="20"  backgroundColor="#ffffff">
+						<ImageView image="/images/Pray_settings_page/ic_drop_menu.png" right="10" width="20"></ImageView>
+						<Label  id="lblCity" onClick="getCity" > </Label>
+						
+			</View>
+		</View>
+	</Window>
+</Alloy>

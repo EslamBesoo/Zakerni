@@ -1,0 +1,16 @@
+<Alloy>
+		<View class="hApp"  zIndex="1000">
+      
+          
+          <View width="100" id="viewIconAR"   right="0"  >
+            <ImageView id="img"  image="/images/Homepage/ic_menu.png"  bottom="20" right="10"></ImageView>
+          </View>
+          
+          <View width="100" id="viewIconEN"   left="0"  >
+            <ImageView id="img"  image="/images/menu.png"  bottom="20" left="10"></ImageView>
+          </View>
+            
+             <Label id="lblTitle"  text="my Title"></Label>
+            
+    </View>
+</Alloy>

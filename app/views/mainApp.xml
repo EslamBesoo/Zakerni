@@ -1,0 +1,14 @@
+<Alloy>
+	<Window class="container">
+	<View class="container">
+		<View class="lv" top="-10">
+			<Require src="/view/mainPageView"></Require>
+		<!--
+			<Require src="/view/paryTimeView"></Require>
+		
+		<Require src="/view/radioView"></Require>
+		-->
+		</View>
+	</View>
+	</Window>
+</Alloy>

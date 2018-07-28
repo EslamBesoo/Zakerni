@@ -1,0 +1,18 @@
+
+".container" : {
+  backgroundImage:"/images/Homepage/background.png"
+}
+"#qiblaPage":{
+      height:"70%",
+      top:"15%",
+      width:Titanium.UI.FILL,
+     // backgroundColor:"red",
+      url:"https://qiblafinder.withgoogle.com/intl/ar/",
+      borderRadius:2,
+      ignoreSslError:true,
+      elevation:2,
+      scalesPageToFit:true,
+      enableZoomControls:true,
+      visible:true,
+      
+}

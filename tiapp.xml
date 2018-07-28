@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.digitaldesign.Zakerni</id>
+    <name>Zakerni</name>
+    <version>1.0</version>
+    <publisher>nmounir</publisher>
+    <url>undefined</url>
+    <description>undefined</description>
+    <copyright>2018 by nmounir</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>3296bc29-ce72-487f-9bbb-5edeaf5533f5</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="run-on-main-thread" type="bool">true</property>
+    <property name="ti.android.bug2373.finishfalseroot" type="bool">true</property>
+    <property name="ti.android.bug2373.disableDetection" type="bool">true</property>
+    <property name="ti.android.bug2373.restartDelay" type="int">500</property>
+    <property name="ti.android.bug2373.finishDelay" type="int">0</property>
+    <property name="ti.android.bug2373.skipAlert" type="bool">true</property>
+    <property name="ti.android.bug2373.message">Initializing</property>
+    <property name="ti.android.bug2373.title">Restart Required</property>
+    <property name="ti.android.bug2373.buttonText">Continue</property>
+    <ios>
+        <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+        <use-app-thinning>true</use-app-thinning>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <!--  <tool-api-level>17</tool-api-level>-->
+        <activities>
+            <activity url="sample.js">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                </intent-filter>
+                <intent-filter>
+                    <action android:name="android.intent.action.SEND"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <data android:mimeType="text/plain"/>
+                </intent-filter>
+            </activity>
+        </activities>
+        <manifest android:versionCode="3" android:versionName="1.2" android:windowSoftInputMode="stateHidden">
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <uses-permission android:name="android.permission.GET_TASKS"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.CAMERA"/>
+            
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <uses-permission android:name="android.permission.VIBRATE"/>
+            <uses-permission android:name="android.permission.WAKE_LOCK"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+            
+            <application android:debuggable="false"
+                android:label="@string/app_name"
+                android:largeHeap="true" android:supportsRtl="true" android:theme="@style/appcelerator.NoActionBar">
+                <activity android:alwaysRetainTaskState="true"
+                    android:label="@string/app_name" android:name=".ZakerniActivity">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN"/>
+                        <category android:name="android.intent.category.LAUNCHER"/>
+                    </intent-filter>
+                    <!--  <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>-->
+                </activity>
+                <!--<activity url="index.js"
+            android:launchMode="singleTask" android:alwaysRetainTaskState="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <category android:name="android.intent.category.BROWSABLE"/>
+                    
+                </intent-filter>
+</activity> -->
+                <receiver android:name="bencoding.alarmmanager.AlarmNotificationListener"/>
+                <receiver android:name="bencoding.alarmmanager.AlarmServiceListener"/>
+                <receiver android:exported="true" android:name="bencoding.android.receivers.BootReceiver">
+                    <intent-filter>
+                        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                        <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                    </intent-filter>
+                    <meta-data android:name="bootType" android:value="restart"/>
+                    <meta-data android:name="sendToBack" android:value="true"/>
+                </receiver>
+            </application>
+        </manifest>
+        <service android:name="com.digitaldesign.Zakerni.NotificationserviceService"/>
+        <service android:name="com.digitaldesign.Zakerni.AddservicesService"/>
+        <service android:name="com.digitaldesign.Zakerni.AdhanserviceService"/>
+        <services>
+            <service type="interval" url="addservices.js"/>
+            <service type="interval" url="Notificationservice.js"/>
+            <service type="interval" url="adhanservice.js"/>
+        </services>
+    </android>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android" version="2.0.0">bencoding.alarmmanager</module>
+        <module platform="android">bencoding.android.tools</module>
+        <module platform="android">ti.playservices</module>
+        <module platform="iphone">ti.webdialog</module>
+        <module platform="android">ti.webdialog</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+    </deployment-targets>
+    <sdk-version>7.2.0.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">5b4ba867d32a661bf5b89bd6</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">NJ0b1JbxiJ7u7p6UFtJS2DSbQrhMa5Hy</property>
+    <property name="acs-oauth-key-development" type="string">uTeZ7U69MuW1Cp9RUYl5VuaSuI7GVzoK</property>
+    <property name="acs-api-key-development" type="string">BRCi7IG7JtmCG2Tl5Rc2KrAANjTVMsmG</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">BuAFzcgGq5YqQLz7yU</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">moe0HglpgkOt2vE0cQVCTRWSf77VeJGE</property>
+    <property name="acs-oauth-key-production" type="string">dmaw1cKjGNUyFmWR8kxT5IVcPZyKvdDG</property>
+    <property name="acs-api-key-production" type="string">IKutlHqXh71IiiYcscLS791TfuNNVN9q</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">TiaTCYEVJEgtvHmpx2</property>
+    <property name="appc-org-id" type="string">100128935</property>
+    <property name="appc-creator-user-id" type="string">15d85d1c-3288-4232-906c-d456167b68ed</property>
+</ti:app>

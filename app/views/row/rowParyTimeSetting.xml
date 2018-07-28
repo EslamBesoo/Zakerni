@@ -1,0 +1,9 @@
+<Alloy>
+	<TableViewRow class="container">
+		<View id="viewRow" class="lh">
+			
+			<Label  id="lblTitle"></Label>
+			<ImageView id="img" image="/images/Pray_settings_page/ic_unselected.png"></ImageView>
+		</View>
+	</TableViewRow>
+</Alloy>

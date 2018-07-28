@@ -1,0 +1,10 @@
+<Alloy>
+	<Window class="container" onOpen="runRadio" onClose="closeRadio">
+	<View class="container">
+		<View  top="80" id="play">
+		<Widget id="audioPlayer" src="dk.napp.audioplayer" />
+		 <Widget id="fa" src="com.mattmcfarland.fontawesome"/>
+		</View>
+	</View>
+	</Window>
+</Alloy>

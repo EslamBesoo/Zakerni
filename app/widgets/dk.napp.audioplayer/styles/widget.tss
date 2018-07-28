@@ -1,0 +1,37 @@
+"#wrap":{
+	width: "260dp",
+	height: "100dp",
+	//backgroundColor:"yellow"
+}
+
+"#playStopBtn":{
+	width: 30,
+	height: 30,
+	top:10,
+	left:10,
+	image:"/img/ic_play.png",
+}
+
+"#time":{
+	top: "10dp",
+	right:10,
+	width: Ti.UI.SIZE,
+	font:{fontSize:16,
+	fontFamily: Alloy.Globals.fontType,
+	fontWeight: 'bold',
+	},
+	color:"#526938",
+}
+
+"#scrubBar":{
+	top: "40dp",
+	width: "260dp",
+	height: "30dp",
+	min: 0,
+	max: 100,
+	value: 0
+}
+
+"#scrubBar[platform=ios]":{
+	style: Titanium.UI.iPhone.ProgressBarStyle.PLAIN
+}

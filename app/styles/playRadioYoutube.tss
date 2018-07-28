@@ -1,0 +1,28 @@
+
+".container" : {
+  
+}
+
+"#audioPlayer":{
+	styles:{
+		// you can override each UI element this way
+		// Just look at the id in the widget.xml
+		wrap: {
+			width: "280dp",
+			height: "100dp"
+		},
+		
+		playStopBtn: {
+			color: "red"
+		},
+		
+		scrubBar: {
+			tintColor: "red"
+		}
+		
+	},
+	
+	// right now - this is ref to FontAwesome
+	playIcon:"تشغيل",
+	pauseIcon: "ايقاف",
+}
