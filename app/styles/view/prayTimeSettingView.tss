@@ -19,6 +19,6 @@
 	right:40,
 	//backgroundColor:"red",
 	font:{fontSize:16},
-	text:"اختيار التبية قبل الاذان"
+	text:"اختيار التنبيه قبل الاذان"
 }
 

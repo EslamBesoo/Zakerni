@@ -19,6 +19,9 @@ function getCity(){
 Ti.App.addEventListener('setServices',function(){
       Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
       Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
+      Ti.App.Properties.setString("LocationIndicator","City");
+      Alloy.Globals.LocationGPS = false;
+      Alloy.Globals.LocationCity = true;
       AddServices();
 });
 

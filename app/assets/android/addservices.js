@@ -19,34 +19,79 @@ var params = adhan.CalculationMethod.Egyptian();
 var prayerTimes = new adhan.PrayerTimes(coordinates, now, params);
 var formattedTime = adhan.Date.formattedTime;
 _alarmManager.cancelNotifications();
-var fajrTime = formattedTime(prayerTimes.fajr, 2);
-Ti.API.info('fajrTime',fajrTime);
-addnotificationAlarm("الفجر",fajrTime);
+var City = Ti.App.Properties.getString("cTitle");
+var fromGMT;
+if (City == "مصر‎") {
+      fromGMT =2;
+} else if (City == "الكويت") {
+      fromGMT =3;
+}else if (City == "السعودية") {
+      fromGMT =3;
+}else if (City == "الإمارات") {
+      fromGMT =4;
+}else if (City == "البحرين") {
+      fromGMT =3;
+}else if (City == "قطر") {
+      fromGMT =3;
+}else if (City == "العراق") {
+      fromGMT =3;
+};
+
+
+var fajrTime = formattedTime(prayerTimes.fajr, fromGMT);
+var dhuhrTime = formattedTime(prayerTimes.dhuhr, fromGMT);
+var asrTime = formattedTime(prayerTimes.asr, fromGMT);
+var maghribTime = formattedTime(prayerTimes.maghrib, fromGMT);
+var ishaTime = formattedTime(prayerTimes.isha, fromGMT);
+
+var notificationType = Ti.App.Properties.getString("notificationType");
+if (notificationType == "all") {
+   addnotificationAlarm("الفجر",fajrTime);
 addAzanAlarm("الفجر",fajrTime);
 
-var dhuhrTime = formattedTime(prayerTimes.dhuhr, 2);
-Ti.API.info('dhuhrTime',dhuhrTime);
 addnotificationAlarm("الظهر",dhuhrTime);
 addAzanAlarm("الظهر",dhuhrTime);
-var asrTime = formattedTime(prayerTimes.asr, 2);
-Ti.API.info('asrTime',asrTime);
+
+
 addnotificationAlarm("العصر",asrTime);
 addAzanAlarm("العصر",asrTime);
-var maghribTime = formattedTime(prayerTimes.maghrib, 2);
-Ti.API.info('maghribTime',maghribTime);
+
+
 addnotificationAlarm("المغرب",maghribTime);
 addAzanAlarm("المغرب",maghribTime);
-var ishaTime = formattedTime(prayerTimes.isha, 2);
-Ti.API.info('ishaTime',ishaTime);
+
+
 addnotificationAlarm("العشاء",ishaTime);
-addAzanAlarm("العشاء",ishaTime);
-var testTime = "9:05 PM";
-Ti.API.info('testTime',testTime);
-addnotificationAlarm("testTime",testTime);
-addAzanAlarm("testTime",testTime);
+addAzanAlarm("العشاء",ishaTime);   
+} else if (notificationType == "fajr") {
+         addnotificationAlarm("الفجر",fajrTime);
+         addAzanAlarm("الفجر",fajrTime);
+}else if (notificationType == "dhuhr") {
+        addnotificationAlarm("الظهر",dhuhrTime);
+        addAzanAlarm("الظهر",dhuhrTime);
+}else if (notificationType == "asr") {
+        addnotificationAlarm("العصر",asrTime);
+        addAzanAlarm("العصر",asrTime);
+}else if (notificationType == "maghrib") {
+        addnotificationAlarm("المغرب",maghribTime);
+        addAzanAlarm("المغرب",maghribTime);
+}else if (notificationType == "isha") {
+       addnotificationAlarm("العشاء",ishaTime);
+addAzanAlarm("العشاء",ishaTime); 
+};
 
 
+// var testTime = "9:05 PM";
+// Ti.API.info('testTime',testTime);
+// addnotificationAlarm("testTime",testTime);
+// addAzanAlarm("testTime",testTime);
 
+
+Ti.API.info('fajrTime',fajrTime);
+Ti.API.info('dhuhrTime',dhuhrTime);
+Ti.API.info('asrTime',asrTime);
+Ti.API.info('maghribTime',maghribTime);
+Ti.API.info('ishaTime',ishaTime);
 
 setTimeout(function(){
       Ti.API.info("First Service Ended");
@@ -114,14 +159,15 @@ function addnotificationAlarm(title, time) {
 }
 
 function checkTime(time) {
-  var fullTime = moment(time, "hh:mm A");
+      
+  var fullTime =  moment(time, "hh:mm A");
 
   var isBefore = new moment().isBefore(fullTime);
 
   return isBefore;
 }
 function timeConvertor(time) {
-    var PM = true;
+    var PM ;
     var timesplit = time.split(' ')[1];
     Ti.API.info('timesplit',timesplit);
     if (timesplit  == "PM") {
@@ -134,7 +180,11 @@ function timeConvertor(time) {
     var min = time[1];
     
     if (PM) {
+            if ( Number(time[0]) == 12) {
+                 var hour = time[0]; 
+            } else{
         var hour = 12 + Number(time[0]);
+        };
         //var sec = time[2].replace('PM', '');
     } else {
         var hour = time[0];

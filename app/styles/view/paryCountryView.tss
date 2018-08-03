@@ -43,3 +43,15 @@
 	font:{fontSize:14},
 	//text:"25 شعبان 1439"
 }
+"#cityInd[if=Alloy.Globals.LocationCity]":{
+      image:"/images/Pray_settings_page/ic_selected.png"
+}
+"#cityInd[if=Alloy.Globals.LocationGPS]":{
+      image:"/images/Pray_settings_page/ic_unselected.png"
+}
+"#gpsInd[if=Alloy.Globals.LocationCity]":{
+      image:"/images/Pray_settings_page/ic_unselected.png"
+}
+"#gpsInd[if=Alloy.Globals.LocationGPS]":{
+      image:"/images/Pray_settings_page/ic_selected.png"
+}

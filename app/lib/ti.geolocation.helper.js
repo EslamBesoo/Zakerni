@@ -46,7 +46,7 @@ function handlePermissions(_success) {
             if (_e.success) {
 
                   // Instead, probably call the same method you call if hasLocationPermissions() is true
-                  alert('You granted permission.');
+                 // alert('You granted permission.');
                   _success();
 
             } else if (OS_ANDROID) {
@@ -90,14 +90,14 @@ function getLocation(_args) {
                   Titanium.Geolocation.purpose = 'Get Current Location';
                   Titanium.Geolocation.getCurrentPosition(function(_e) {
                         if (_e.error) {
-                              console.error('Error: ' + _e.error)
+                              console.error('Error: ' + _e.error);
                               _args.error && _args.error(_e.error);
                         } else {
                               _args.success && _args.success(_e.coords);
                         }
                   });
             } else {
-                  alert('Please enable location services');
+                  //alert('Please enable location services');
             }
       }
 
@@ -137,13 +137,13 @@ function getCompass(_args) {
                   // make a single request for the current heading
                   Ti.Geolocation.getCurrentHeading(function(_e) {
                         Ti.API.info(_e.heading);
-                        _args.success && _args.success(_e.heading)
+                        _args.success && _args.success(_e.heading);
                   });
 
                   // Set 'heading' event for continual monitoring
                   Ti.Geolocation.addEventListener('heading', function(_e) {
                         if (_e.error) {
-                              console.warn('[ti.getlocation.helper] compass error: ' + _e.error)
+                              console.warn('[ti.getlocation.helper] compass error: ' + _e.error);
                               _args.error && _args.error(_e.error);
                         } else {
                               _args.success && _args.success(_e.heading);

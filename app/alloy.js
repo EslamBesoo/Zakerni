@@ -58,6 +58,12 @@ Ti.App.Properties.setString("cTitle","test");
 } else{
       //Ti.App.Properties.setString("cTitle","test");
       };
+      if (Ti.App.Properties.getString("notificationType") == null) {
+
+Ti.App.Properties.setString("notificationType","all");
+} else{
+      //Ti.App.Properties.setString("cTitle","test");
+      };
 Ti.API.info('cTitle',Ti.App.Properties.getString("cTitle"));
 Alloy.Globals.player = Ti.Media.createSound({
         url : "/sound.mp3",
@@ -123,6 +129,15 @@ var _price;
 Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
 Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
 
+var LocationIndicator = Ti.App.Properties.getString("LocationIndicator");
+if (LocationIndicator == "GPS") {
+      Alloy.Globals.LocationGPS = true;
+      Alloy.Globals.LocationCity = false;
+      
+} else if(LocationIndicator == "City"){
+      Alloy.Globals.LocationGPS = false;
+      Alloy.Globals.LocationCity = true;
+};
 
 
 var iosToast=require("iosToast");

@@ -4,23 +4,23 @@ var args = $.args;
 var geo = require('ti.geolocation.helper');
 var util = require("util");
 
-
+if (Alloy.Globals.LocationGPS) {
+       geo.getLocation({success: success, error: error});
+};
 function getLocation(){
       geo.getLocation({success: success, error: error});
 }
 
 function success(_location) {
-                  console.warn("location callback success");
-                  console.info(JSON.stringify(_location));
+                  //console.warn("location callback success");
+                 // console.info(JSON.stringify(_location));
+                  Ti.App.Properties.setString("cLat",_location.latitude);
+                  Ti.App.Properties.setString("cLon",_location.longitude);
                   Alloy.Globals.userLat = _location.latitude;
                   Alloy.Globals.userLon = _location.longitude;
                   Ti.API.info('Alloy.Globals.userLat',Alloy.Globals.userLat);
                   Ti.API.info('Alloy.Globals.userLon',Alloy.Globals.userLon);
                   
-                  // $.latitude.setText("latitude : " + _location.latitude);
-                  // Lat = _location.latitude;
-                  // $.longitude.setText("longitude : " + _location.longitude);
-                  // Long = _location.longitude;
             }
 
        function error(_error) {
@@ -81,8 +81,8 @@ var _alarmManager = _alarmModule.createAlarmManager();
         year: now.getFullYear(),
         month: now.getMonth(),
         day: Number(nextday),
-        hour: Number("20"),
-        minute: Number("15"),
+        hour: Number("1"),
+        minute: Number("10"),
         forceRestart: true,
 
         repeat: 86400000 });
