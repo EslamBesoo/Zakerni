@@ -1,4 +1,4 @@
-var Alloy = require('alloy');
+//var Alloy = require('alloy');
 exports.open=function(controller,payload){
 	 
 		var drawer;

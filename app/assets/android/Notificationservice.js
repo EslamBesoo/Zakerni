@@ -3,7 +3,8 @@ var serviceIntent = service.getIntent();
 
 
 
-
+setNotification();
+Ti.Android.stopService(serviceIntent);
 function setNotification(alarm){
   var ArgsData = JSON.parse(serviceIntent.getStringExtra('customData'));
  Ti.API.info('second service ArgsData',JSON.stringify(ArgsData));
@@ -54,8 +55,7 @@ function setNotification(alarm){
     Ti.API.info("second Service Ended");
 
 }
-setNotification();
-      
+
 setTimeout(function(){
-      Ti.Android.stopService(serviceIntent);
+     
 },1000);

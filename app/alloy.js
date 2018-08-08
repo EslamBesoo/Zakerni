@@ -1,4 +1,4 @@
-
+Ti.API.info('Titanium.Platform.Android',Titanium.Platform.Android.API_LEVEL);
 (function(){
 var ACS = require('ti.cloud'),
     env = Ti.App.deployType.toLowerCase() === 'production' ? 'production' : 'development',
@@ -58,7 +58,7 @@ Ti.App.Properties.setString("cTitle","test");
 } else{
       //Ti.App.Properties.setString("cTitle","test");
       };
-      if (Ti.App.Properties.getString("notificationType") == null) {
+if (Ti.App.Properties.getString("notificationType") == null) {
 
 Ti.App.Properties.setString("notificationType","all");
 } else{
@@ -69,24 +69,13 @@ Alloy.Globals.player = Ti.Media.createSound({
         url : "/sound.mp3",
         allowBackground: true,
         volume:1.0,
-        
-        
     });
     Ti.App.Properties.setObject("player",Alloy.Globals.player);
 function success(_location) {
-                  console.warn("location callback success");
-                  console.info(JSON.stringify(_location));
                   Ti.App.Properties.setString("userLat",_location.latitude);
                   Ti.App.Properties.setString("userLon",_location.longitude);
                   Alloy.Globals.userLat = Ti.App.Properties.getString("userLat");
                   Alloy.Globals.userLon = Ti.App.Properties.getString("userLon");
-                  Ti.API.info('Alloy.Globals.userLat',Alloy.Globals.userLat);
-                  Ti.API.info('Alloy.Globals.userLon',Alloy.Globals.userLon);
-                  
-                  // $.latitude.setText("latitude : " + _location.latitude);
-                  // Lat = _location.latitude;
-                  // $.longitude.setText("longitude : " + _location.longitude);
-                  // Long = _location.longitude;
             }
 
        function error(_error) {

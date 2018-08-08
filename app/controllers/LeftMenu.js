@@ -2,10 +2,111 @@
 var args = $.args;
 var drawer=args;
 var rowCount;
+var City = Ti.App.Properties.getString("cTitle");
+ //Ti.App.Properties.getString("officeID");
+if (City =="test") {} else{
+Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
+Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");  
+ var now = new Date();
+ var moment = require('alloy/moment');
+ 
+var adhan = require('adhan');
+ var coordinates = new adhan.Coordinates(Alloy.Globals.userLat, Alloy.Globals.userLon);
 
-            			 Ti.App.Properties.getString("officeID");
-            			
-  
+var fromGMT;
+var params;
+if (City == "مصر‎") {
+      fromGMT =2;
+       params = adhan.CalculationMethod.Egyptian();
+      params.madhab = adhan.Madhab.Shafi;
+
+} else if (City == "الكويت") {
+      fromGMT =3;
+       params = adhan.CalculationMethod.Kuwait();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "السعودية") {
+      fromGMT =3;
+       params = adhan.CalculationMethod.UmmAlQura();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "الإمارات") {
+      fromGMT =4;
+       params = adhan.CalculationMethod.Gulf();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "البحرين") {
+      fromGMT =3;
+       params = adhan.CalculationMethod.MuslimWorldLeague();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "قطر") {
+      fromGMT =3;
+       params = adhan.CalculationMethod.Qatar();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "العراق") {
+      fromGMT =3;
+       params = adhan.CalculationMethod.MuslimWorldLeague();
+     params.madhab = adhan.Madhab.Shafi;
+};
+//params.madhab = adhan.Madhab.Shafi;
+var timesArray =[];
+ var prayerTimes = new adhan.PrayerTimes(coordinates, now, params);
+var formattedTime = adhan.Date.formattedTime;
+var fajrTime = formattedTime(prayerTimes.fajr, fromGMT, '24h');
+timesArray.push({title:" الفجر ",time:fajrTime});
+var dhuhrTime = formattedTime(prayerTimes.dhuhr, fromGMT, '24h');
+timesArray.push({title:" الظهر ",time:dhuhrTime});
+var asrTime = formattedTime(prayerTimes.asr, fromGMT, '24h');
+timesArray.push({title:" العصر ",time:asrTime});
+var maghribTime = formattedTime(prayerTimes.maghrib, fromGMT, '24h');
+timesArray.push({title:" المغرب ",time:maghribTime});
+var ishaTime = formattedTime(prayerTimes.isha, fromGMT, '24h');
+timesArray.push({title:" العشاء ",time:ishaTime});
+//timesArray.push({title:"تجربه",time:"22:00"});
+ PutTimeLeftToPray();
+ setInterval(PutTimeLeftToPray,60000);
+ };
+function PutTimeLeftToPray(){
+var nearstPray = findNearstPray(timesArray);
+var nowTime = moment();
+var doneIsha = " تم رفع آذان العشاء منذ ";
+var toPray = " باقى على آذان ";
+var doneMin = " دقيقة ";
+var doneHour= " ساعة ";
+var doneAnd = " و ";
+if (nearstPray == null) {
+      var IshaTime  =  moment(ishaTime, "H:m");
+      var diffTimeHours = nowTime.diff(IshaTime, 'hours');
+      var diffTimeMinutes = nowTime.diff(IshaTime, 'minutes');
+      if (Number(diffTimeHours) > 0) {
+         var hours = Math.trunc(diffTimeMinutes/60);
+         var minutes = diffTimeMinutes % 60;
+         $.officeName.setText(doneIsha +hours+doneHour+doneAnd+minutes+ doneMin);
+      }else{
+         $.officeName.setText(doneIsha +diffTimeMinutes+ doneMin);
+      }
+} else{
+      var PrayTime  =  moment(nearstPray.time, "H:m");
+      var diffTimeHours = PrayTime.diff(nowTime, 'hours');
+      var diffTimeMinutes = PrayTime.diff(nowTime, 'minutes');
+      var hours = Math.trunc(diffTimeMinutes/60);
+      var minutes = diffTimeMinutes % 60;
+       $.officeName.setText(toPray + nearstPray.title + hours + doneHour + doneAnd + minutes+ doneMin);
+      Ti.API.info('nearstPray != null',JSON.stringify(nearstPray)); 
+}}
+
+ function findNearstPray(array){
+       var isBefore = false;
+       for (var i=0; i < array.length; i++) {
+             var x = array[i];
+         var newTime = moment(x.time, "H:m");
+          isBefore = new moment().isBefore(newTime);
+         if (isBefore == true) {
+               return x;
+               break;
+         };
+         if (i == array.length && isBefore == false) {
+               return null;
+         };
+       };
+ }
  // $.officeName.text=Ti.App.Properties.getString("officeTitle");;
 //$.img.image=Alloy.Globals.imagePath+Ti.App.Properties.getString("officeImg")+"&h=150&w=150&q=100&zc=0";
 //alert(JSON.stringify(drawer));
@@ -14,7 +115,7 @@ var rowCount;
         {title:"مواقيت الصلاة",img:"/images/Sidemenu/ic_pray_time.png"},
         {title: "اعدادات الصلاة",img:"/images/Sidemenu/ic_pray_setting.png"},
         {title:"قراءة القرآن",img:"/images/Sidemenu/ic_reading_quran.png"},
-         {title:"استماع القرآن" ,img:"/images/Sidemenu/ic_listening_quran.png"},
+        {title:"استماع القرآن" ,img:"/images/Sidemenu/ic_listening_quran.png"},
         {title:"اذكار واردة في القرآن",img:"/images/Sidemenu/ic_azkar.png"},
         {title:"اتجاه القبلة",img:"/images/Sidemenu/ic_azkar.png"},
          

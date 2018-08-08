@@ -7,10 +7,11 @@ var DateHijri = hijri.convert(DateToday, 0);
 var adhan = require('adhan');
 Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
 Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
+var City = Ti.App.Properties.getString("cTitle");
 var coordinates = new adhan.Coordinates(Alloy.Globals.userLat, Alloy.Globals.userLon);
 Ti.API.info('Alloy.Globals.userLat',Alloy.Globals.userLat);
-var params = adhan.CalculationMethod.Egyptian();
-   params.madhab = adhan.Madhab.Shafi;
+// var params = adhan.CalculationMethod.Egyptian();
+   // params.madhab = adhan.Madhab.Shafi;
 var months = ["يناير", "فبراير", "مارس", "إبريل", "مايو", "يونيو",
               "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
 
@@ -29,13 +30,43 @@ setTimeout(inti,500);
 function inti(){
        $.lbltime.setText(DateHijri.dayOfMonth+" "+ DateHijri.monthText +" "+ DateHijri.year);
        $.lblTitle.setText(days[DateToday.getDay()] + " "+DateToday.getDate() + " "+ months[DateToday.getMonth()] + " "+ DateToday.getFullYear());
-	////// get pryer times
+	
+var fromGMT;
+if (City == "مصر‎") {
+      fromGMT =2;
+      var params = adhan.CalculationMethod.Egyptian();
+      params.madhab = adhan.Madhab.Shafi;
+} else if (City == "الكويت") {
+      fromGMT =3;
+      var params = adhan.CalculationMethod.Kuwait();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "السعودية") {
+      fromGMT =3;
+      var params = adhan.CalculationMethod.UmmAlQura();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "الإمارات") {
+      fromGMT =4;
+      var params = adhan.CalculationMethod.Gulf();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "البحرين") {
+      fromGMT =3;
+      var params = adhan.CalculationMethod.MuslimWorldLeague();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "قطر") {
+      fromGMT =3;
+      var params = adhan.CalculationMethod.Qatar();
+      params.madhab = adhan.Madhab.Shafi;
+}else if (City == "العراق") {
+      fromGMT =3;
+      var params = adhan.CalculationMethod.MuslimWorldLeague();
+      params.madhab = adhan.Madhab.Shafi;
+};
+////// get pryer times
       var prayerTimes = new adhan.PrayerTimes(coordinates, DateToday, params);
       //// formate dates
      var formattedTime = adhan.Date.formattedTime;
-	
 	/////// add Fajr /////
-        var fajrTime = formattedTime(prayerTimes.fajr, 2);
+        var fajrTime = formattedTime(prayerTimes.fajr, fromGMT);
         var fajrHour = fajrTime.split(' ')[0];
         if (fajrTime.split(' ')[1] == "AM") {
               var fajrtype = "ص";
@@ -46,7 +77,7 @@ function inti(){
         /////// add Fajr /////
         
         /////// add sunrise /////
-        var sunriseTime = formattedTime(prayerTimes.sunrise, 2);
+        var sunriseTime = formattedTime(prayerTimes.sunrise, fromGMT);
         var sunriseHour = sunriseTime.split(' ')[0];
         if (sunriseTime.split(' ')[1] == "AM") {
               var sunrisetype = "ص";
@@ -57,7 +88,7 @@ function inti(){
         /////// add sunrise /////
         
         /////// add dhuhr /////
-        var dhuhrTime = formattedTime(prayerTimes.dhuhr, 2);
+        var dhuhrTime = formattedTime(prayerTimes.dhuhr, fromGMT);
         var dhuhrHour = dhuhrTime.split(' ')[0];
         if (dhuhrTime.split(' ')[1] == "AM") {
               var dhuhrtype = "ص";
@@ -68,7 +99,7 @@ function inti(){
         /////// add dhuhr /////
         
         /////// add asr /////
-        var asrTime = formattedTime(prayerTimes.asr, 2);
+        var asrTime = formattedTime(prayerTimes.asr, fromGMT);
         var asrHour = asrTime.split(' ')[0];
         if (asrTime.split(' ')[1] == "AM") {
               var asrtype = "ص";
@@ -79,7 +110,7 @@ function inti(){
         /////// add asr /////
         
         /////// add maghrib /////
-        var maghribTime = formattedTime(prayerTimes.maghrib, 2);
+        var maghribTime = formattedTime(prayerTimes.maghrib, fromGMT);
         var maghribHour = maghribTime.split(' ')[0];
         if (maghribTime.split(' ')[1] == "AM") {
               var maghribtype = "ص";
@@ -90,7 +121,7 @@ function inti(){
         /////// add maghrib /////
         
         /////// add isha /////
-        var ishaTime = formattedTime(prayerTimes.isha, 2);
+        var ishaTime = formattedTime(prayerTimes.isha, fromGMT);
         var ishaHour = ishaTime.split(' ')[0];
         if (ishaTime.split(' ')[1] == "AM") {
               var ishatype = "ص";

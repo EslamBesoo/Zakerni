@@ -32,7 +32,7 @@ setTimeout(function(){
            var permissions = ['android.permission.ACCESS_WIFI_STATE',
             'android.permission.WAKE_LOCK',
             'android.permission.GET_TASKS',
-            'android.permission.CAMERA',
+            'android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS',
             'android.permission.ACCESS_FINE_LOCATION',
             'android.permission.RECEIVE_BOOT_COMPLETED',
             'android.permission.VIBRATE'];

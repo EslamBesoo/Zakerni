@@ -46,7 +46,7 @@ function AddServices() {
       Ti.API.info('now', now);
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        //requestCode: randomNumber,
+        requestCode: randomNumber,
         year: now.getFullYear(),
         month: now.getMonth(),
         day: now.getDate(),
