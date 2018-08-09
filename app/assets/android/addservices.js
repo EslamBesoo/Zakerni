@@ -99,9 +99,9 @@ addAzanAlarm("العشاء",ishaTime);
 };
 
 // 
- var testTime = "21:45";
- var testTime2 = "21:48";
- var testTime3 = "21:51";
+ var testTime = "22:20";
+ var testTime2 = "22:24";
+ var testTime3 = "22:28";
 
  addnotificationAlarm("testTime",testTime);
  addAzanAlarm("testTime",testTime);
