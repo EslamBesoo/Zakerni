@@ -64,7 +64,3 @@ function setNotification(alarm){
 
 }
 
-// setTimeout(function(){
-//      
-     // Ti.Android.stopService(serviceIntent);
-// },15000);
