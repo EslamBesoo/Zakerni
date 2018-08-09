@@ -99,16 +99,16 @@ addAzanAlarm("العشاء",ishaTime);
 };
 
 // 
- var testTime = "1:55";
- var testTime2 = "2:00";
- //var testTime3 = "2:20";
+ var testTime = "21:45";
+ var testTime2 = "21:48";
+ var testTime3 = "21:51";
 
  addnotificationAlarm("testTime",testTime);
  addAzanAlarm("testTime",testTime);
  addnotificationAlarm("testTime2",testTime2);
  addAzanAlarm("testTime2",testTime2);
- // addnotificationAlarm("testTime3",testTime3);
- // addAzanAlarm("testTime3",testTime3);
+ addnotificationAlarm("testTime3",testTime3);
+ addAzanAlarm("testTime3",testTime3);
 
 Ti.API.info('fajrTime',fajrTime);
 Ti.API.info('dhuhrTime',dhuhrTime);

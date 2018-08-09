@@ -88,7 +88,14 @@ if (nearstPray == null) {
       var diffTimeMinutes = PrayTime.diff(nowTime, 'minutes');
       var hours = Math.trunc(diffTimeMinutes/60);
       var minutes = diffTimeMinutes % 60;
-       $.officeName.setText(toPray + nearstPray.title + hours + doneHour + doneAnd + minutes+ doneMin);
+      if (Number(diffTimeHours) > 0) {
+         var hours = Math.trunc(diffTimeMinutes/60);
+         var minutes = diffTimeMinutes % 60;
+        $.officeName.setText(toPray + nearstPray.title + hours + doneHour + doneAnd + minutes+ doneMin);
+      }else{
+         $.officeName.setText(toPray +nearstPray.title + minutes+ doneMin);
+      }
+       
       Ti.API.info('nearstPray != null',JSON.stringify(nearstPray)); 
 }}
 

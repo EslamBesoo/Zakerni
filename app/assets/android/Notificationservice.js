@@ -6,6 +6,7 @@ var serviceIntent = service.getIntent();
 setNotification();
 Ti.Android.stopService(serviceIntent);
 function setNotification(alarm){
+      Ti.Android.NotificationManager.cancelAll();
   var ArgsData = JSON.parse(serviceIntent.getStringExtra('customData'));
  Ti.API.info('second service ArgsData',JSON.stringify(ArgsData));
  Ti.API.info("second Service Launched");
@@ -21,7 +22,7 @@ function setNotification(alarm){
         activity : activity,
         intent : intent,
         type : Ti.Android.PENDING_INTENT_FOR_ACTIVITY,
-        flags : Ti.Android.FLAG_ACTIVITY_NO_HISTORY
+        flags : Ti.Android.FLAG_UPDATE_CURRENT
     });
 
     var message = " "+"باقى على آذان"+" " +ArgsData[0]+" "+"دقيقتين"+" ";
@@ -49,6 +50,13 @@ function setNotification(alarm){
     };
 
     var notification = Ti.Android.createNotification(notificationOptions);
+    Ti.API.info('Titanium.Platform.Android',Titanium.Platform.Android.API_LEVEL);
+    if (Number(Titanium.Platform.Android.API_LEVEL) < Number("23")) {
+          Ti.API.info('Titanium.Platform.Android.API_LEVEL < 23');
+    notification.sound = Ti.Filesystem.getResRawDirectory() + 'sound.mp3';
+    }else{
+          Ti.API.info('Titanium.Platform.Android.API_LEVEL > 23');
+    }
     Ti.Android.NotificationManager.notify(1, notification);
 
     Ti.Media.vibrate([0,100,100,200,100,100,200,100,100,200]);
@@ -56,6 +64,7 @@ function setNotification(alarm){
 
 }
 
-setTimeout(function(){
-     
-},1000);
+// setTimeout(function(){
+//      
+     // Ti.Android.stopService(serviceIntent);
+// },15000);
