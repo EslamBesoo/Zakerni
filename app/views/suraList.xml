@@ -1,9 +1,11 @@
 <Alloy>
 	
 	<Window class="container">
+	      
 	<View class="container">
 		<View top="65" height="45" backgroundColor="#f8f9de" width="90%">
 			<ImageView id="img"></ImageView>
+			<View platform="android" module="de.marcelpociot.autofocus" />
 			<TextField id="txtSearch" hintText="بحث" onChange="searchValue"></TextField>
 		</View>
 		<TableView id="tbl" bottom="8%" height="72%" width="90%" backgroundColor="#f8f9de" onClick="resetData">

@@ -1,0 +1,9 @@
+<Alloy>
+	<Window class="container">
+	<View class="container">
+		<View class="lv" height="70%" backgroundColor="#f8f9de" width="90%">
+		<TableView id="tbl" top="-1" backgroundColor="#f8f9de" width="90%"></TableView>
+		</View>
+	</View>
+	</Window>
+</Alloy>

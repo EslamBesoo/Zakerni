@@ -1,0 +1,11 @@
+<Alloy>
+	<Window class="container">
+	<View class="container">
+		<View class="lv" height="70%" backgroundColor="#f8f9de" width="90%">
+		<ScrollableView backgroundColor="red"  id="form"  width="100%" showPagingControl="true" layout="vertical"  scrollType="vertical" top="0">
+	    </ScrollableView>
+		</View>
+		
+	</View>
+	</Window>
+</Alloy>
