@@ -183,7 +183,7 @@ if (nearstPray == null) {
                 case 5:
                 closeAll();
                var x={title:data[e.index].title};
-               //Alloy.Globals.Navigator.open("quranRadio",x); 
+               Alloy.Globals.Navigator.open("azkarList",x); 
                 
                 break;
                 case 6:
