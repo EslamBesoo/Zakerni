@@ -2,3 +2,12 @@
 ".container" : {
   
 }
+
+
+".btnView":{
+	 zIndex:"1000",
+	// backgroundColor:"red",
+	 width:40,
+	 height:40,
+	 
+}

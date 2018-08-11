@@ -1,9 +1,17 @@
 <Alloy>
 	<Window class="container">
 	<View class="container">
-		<View class="lv" height="70%" backgroundColor="#f8f9de" width="90%">
-		<ScrollableView backgroundColor="red"  id="form"  width="100%" showPagingControl="true" layout="vertical"  scrollType="vertical" top="0">
+		<View height="70%" backgroundColor="#f8f9de" width="95%">
+			<View class="btnView" right="0" id="nextView" onClick="previousView">
+				<ImageView image="/images/Homepage/ic_play.png" width="30" right="5"></ImageView>
+			</View>
+			
+		<ScrollableView backgroundColor="red"  id="form"  width="90%" showPagingControl="true" layout="vertical"  scrollType="vertical" top="0" onScroll="testScroll">
 	    </ScrollableView>
+	    
+	    <View class="btnView" left="0" id="previousView" onClick="nextView">
+				<ImageView id="imgPrevious" image="/images/Homepage/ic_play.png" width="30" left="5"></ImageView>
+			</View>
 		</View>
 		
 	</View>

@@ -1,14 +1,14 @@
 <Alloy>
-	<View class="container" onClick="goRadio">
-		<View id="viewRow" class="lv">
-			<Label  id="lblTitle"></Label>
-			<View backgroundColor="#e0e0e0" width="90%" height="1" top="10"></View>
-			<Label  id="lblhint" top="10"></Label>
-		</View>
-		<View id="bannerView">
-			<Label id="lblRepeat"></Label>
-			<Label id="lblCountRepat"></Label>
-			<Label id="lblCount"></Label>
-		</View>
-	</View>
+      <View class="container" onClick="nextPage">
+            <View id="viewRow" class="lv">
+                  <Label  id="lblTitle"></Label>
+                  <View backgroundColor="#e0e0e0" width="90%" height="1" top="10"></View>
+                  <Label  id="lblhint" top="10"></Label>
+            </View>
+            <View id="bannerView">
+                  <Label id="lblRepeat"></Label>
+                  <Label id="lblCountRepat"></Label>
+                  <Label id="lblCount"></Label>
+            </View>
+      </View>
 </Alloy>
