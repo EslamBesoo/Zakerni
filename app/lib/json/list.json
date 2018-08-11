@@ -10,8 +10,75 @@
         "url": "https://ahegazy.github.io/muslimKit/json/azkar_massa.json"
     },
     {
+        "title": "أذكار الوضوء",
+        "filename": "wedo2",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+    {
         "title": "أذكار بعد الصلاة",
-        "filename": "postPrayer_azkar",
+        "filename": "PostPrayer_azkar",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title": "الْأدْعِيَةُ القرآنية",
+        "filename": "quran_azkar",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+    {
+        "title": "أذكار متفرقة",
+        "filename": "azkar_motafareka",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title": "أذكار الحج والعمرة",
+        "filename": "haj_azkar",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title": "أذكار الصلاة",
+        "filename": "azkar_pray",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+       "title": "أذكار عند سماع الآذان",
+        "filename": "azkar_azan",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+       "title":" أذكار الطعام والشراب والضيف ",
+        "filename": "azkar_food",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+       "title":" أذكار دخول وخروج الخلاء ",
+        "filename": "azkar_bath",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title":" أذكار النوم والأحلام",
+        "filename": "azkar_sleep",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title":"  أذكار الإستيقاظ من النوم ",
+        "filename": "azkar_wake",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title":"  تسابيح - تسبيح - السبحة - أذكار عظيمة  ",
+        "filename": "azkar_tasabeh",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+        "title":"  أذكار المسجد ",
+        "filename": "azkar_masjed",
+        "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
+    },
+     {
+         "title":" أذكار دخول وخروج المنزل ",
+        "filename": "azkar_home",
         "url": "https://ahegazy.github.io/muslimKit/json/PostPrayer_azkar.json"
     }
+    
+    
 ]

@@ -1,29 +1,45 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args; 
-if (args.id==0) {
-	var data=require("json/azkar_sabah").content;
-} else if (args.id==1) {
-	var data=require("json/azkar_massa").content;
-} else if (args.id==2) {
-	var data=require("json/PostPrayer_azkar").content;
-}
-//Ti.API.info('azkar: '+JSON.stringify(data.title));
+Ti.API.info('azkar: '+JSON.stringify(args.page));
+      var data=require("json/"+args.page).content;
+
+
 function inti(){
-	for (var i=0; i < data.length; i++) {
-	 var rowItem= data[i];
-	 
-	 var rowController=Alloy.createController('row/rowAzkar',{pageNO:i,data:rowItem,allPage:data.length});
-	 $.form.addView(rowController.getView());
-	};
+      for (var i=0; i < data.length; i++) {
+       var rowItem= data[i];
+       
+       var rowController=Alloy.createController('row/rowAzkar',{pageNO:i,data:rowItem,allPage:data.length});
+       $.form.addView(rowController.getView());
+      };
 };
 
  inti();
  
 rtl($.form);
 
-
+$.nextView.visible=false;
 
 Ti.App.addEventListener("textNext",nextView);
 function nextView(){
-	$.form.setCurrentPage(($.form.currentPage+1));
+      $.form.setCurrentPage(($.form.currentPage+1));
+      Ti.API.info('test: '+data.length+" setCurrentPage"+$.form.currentPage);
 };
+
+
+function previousView(){
+      $.form.setCurrentPage(($.form.currentPage-1));
+      Ti.API.info('test: '+data.length+" setCurrentPage"+$.form.currentPage);
+};
+
+
+function testScroll(){
+      //$.form.setCurrentPage(($.form.currentPage+1));
+      Ti.API.info('test: '+data.length+" setCurrentPage"+$.form.currentPage);
+      
+      if ($.form.currentPage==0) {$.nextView.visible=false;}else{$.nextView.visible=true;};
+      
+      if ($.form.currentPage==parseInt(data.length-1)) {$.previousView.visible=false;}else{$.previousView.visible=true;};
+};
+
+
+rtl($.imgPrevious);

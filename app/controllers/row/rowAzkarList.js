@@ -7,7 +7,7 @@ var reqNumMasaa = 6100;
 
 var _alarmModule = require('bencoding.alarmmanager');
 var _alarmManager = _alarmModule.createAlarmManager();
-if (args.id == 2) {
+if (args.id != 0 && args.id != 1) {
       $.setTimebtn.setVisible(false);
 }else if(args.id == 0){
     var AzkarSabahTime = Ti.App.Properties.getObject("AzkarSabahTime");
@@ -108,7 +108,7 @@ function setTimeValue(){
 
 function goRadio(e){
       if(e.source.id == "setTimebtn"){}else{
-           var x={title:args.data.title,id:args.id,back:true};
+           var x={title:args.data.title,id:args.id,back:true,page:args.data.filename};
             Alloy.Globals.Navigator.open("azkar",x);  
       }
 	
