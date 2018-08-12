@@ -38,4 +38,5 @@ function searchValue(){
 
 function resetData(){
 	$.txtSearch.value='';
+	$.search.value='';
 };
