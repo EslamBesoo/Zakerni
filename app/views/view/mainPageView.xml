@@ -1,7 +1,7 @@
 <Alloy>
       <View class="container">
                   <ImageView id="imgLogo" image="/images/Homepage/logo.png" right="0" top="20%" opacity="0"></ImageView>
-            <View top="60" class="lv">
+            <View top="30" class="lv">
                   <ImageView id="img1" image="/images/Homepage/ic_prayers_time.png" top="40" onClick="prayTime" visible="false"></ImageView>
                   <ImageView id="img2" image="/images/Homepage/ic_prayers_setting.png" left="17%" top="-20" onClick="PraySetting" visible="false"></ImageView>
                   <ImageView id="img3" image="/images/Homepage/ic_reading_quran.png"   left="5%" onClick="suraList" visible="false"></ImageView>
