@@ -119,6 +119,7 @@
     </android>
     <modules>
         <module platform="android">bencoding.android.tools</module>
+        <module platform="android">org.iotashan.TiTouchImageView</module>
         <module platform="android" version="1.2.0">bencoding.alarmmanager</module>
         <module platform="android">ti.playservices</module>
         <module platform="commonjs">ti.cloud</module>
