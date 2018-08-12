@@ -1,5 +1,9 @@
 <Alloy>
 	<View class="container">
-		<ImageView id="img" width="110%" height="110%" backgroundColor="yellow" top="-5%"></ImageView>
+		<!--
+		<Button bottom="0" zIndex="10000" title="test"  onClick="testArr"></Button>
+		<ImageView id="imgtest" height="70" bottom="0" left="10" zIndex="10000"  backgroundColor="red"></ImageView>
+		<Require   type="widget" src="com.javiersr.jsrgallery" id="gallery"   ></Require>
+		-->
 	</View>
 </Alloy>

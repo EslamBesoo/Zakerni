@@ -37,3 +37,4 @@ function getTitle(e){
 		$.quranPages.children[0].children[1].backgroundColor="transparent";
 	},3000);
 };
+rtl($.form);
