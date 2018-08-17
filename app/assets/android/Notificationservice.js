@@ -51,12 +51,12 @@ function setNotification(alarm){
 
     var notification = Ti.Android.createNotification(notificationOptions);
     Ti.API.info('Titanium.Platform.Android',Titanium.Platform.Android.API_LEVEL);
-    if (Number(Titanium.Platform.Android.API_LEVEL) < Number("23")) {
-          Ti.API.info('Titanium.Platform.Android.API_LEVEL < 23');
-    notification.sound = Ti.Filesystem.getResRawDirectory() + 'point.mp3';
-    }else{
-          Ti.API.info('Titanium.Platform.Android.API_LEVEL > 23');
-    }
+    // if (Number(Titanium.Platform.Android.API_LEVEL) < Number("23")) {
+          // Ti.API.info('Titanium.Platform.Android.API_LEVEL < 23');
+    // notification.sound = Ti.Filesystem.getResRawDirectory() + 'point.mp3';
+    // }else{
+          // Ti.API.info('Titanium.Platform.Android.API_LEVEL > 23');
+    // }
     Ti.Android.NotificationManager.notify(1, notification);
 
     Ti.Media.vibrate([0,100,100,200,100,100,200,100,100,200]);

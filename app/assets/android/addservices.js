@@ -63,50 +63,50 @@ Ti.API.info('dhuhrTime',dhuhrTime);
 Ti.API.info('asrTime',asrTime);
 Ti.API.info('maghribTime',maghribTime);
 Ti.API.info('ishaTime',ishaTime);
+var fajrReqNum = {notification:100,azan:150};
+var dhuhrReqNum = {notification:200,azan:250};
+var asrReqNum = {notification:300,azan:350};
+var maghribReqNum = {notification:400,azan:450};
+var ishaReqNum = {notification:500,azan:550};
+
 var notificationType = Ti.App.Properties.getString("notificationType");
 if (notificationType == "all") {
-   addnotificationAlarm("الفجر",fajrTime);
-addAzanAlarm("الفجر",fajrTime);
-
-addnotificationAlarm("الظهر",dhuhrTime);
-addAzanAlarm("الظهر",dhuhrTime);
-
-
-addnotificationAlarm("العصر",asrTime);
-addAzanAlarm("العصر",asrTime);
-
-
-addnotificationAlarm("المغرب",maghribTime);
-addAzanAlarm("المغرب",maghribTime);
-
-addnotificationAlarm("العشاء",ishaTime);
-addAzanAlarm("العشاء",ishaTime);   
+addnotificationAlarm("الفجر",fajrTime,fajrReqNum.notification);
+addAzanAlarm("الفجر",fajrTime,fajrReqNum.azan);
+addnotificationAlarm("الظهر",dhuhrTime,dhuhrReqNum.notification);
+addAzanAlarm("الظهر",dhuhrTime,dhuhrReqNum.azan);
+addnotificationAlarm("العصر",asrTime,asrReqNum.notification);
+addAzanAlarm("العصر",asrTime,asrReqNum.azan);
+addnotificationAlarm("المغرب",maghribTime,maghribReqNum.notification);
+addAzanAlarm("المغرب",maghribTime,maghribReqNum.azan);
+addnotificationAlarm("العشاء",ishaTime,ishaReqNum.notification);
+addAzanAlarm("العشاء",ishaTime,ishaReqNum.azan);   
 } else if (notificationType == "fajr") {
-         addnotificationAlarm("الفجر",fajrTime);
-         addAzanAlarm("الفجر",fajrTime);
+         addnotificationAlarm("الفجر",fajrTime,fajrReqNum.notification);
+         addAzanAlarm("الفجر",fajrTime,fajrReqNum.azan);
 }else if (notificationType == "dhuhr") {
-        addnotificationAlarm("الظهر",dhuhrTime);
-        addAzanAlarm("الظهر",dhuhrTime);
+        addnotificationAlarm("الظهر",dhuhrTime,dhuhrReqNum.notification);
+        addAzanAlarm("الظهر",dhuhrTime,dhuhrReqNum.azan);
 }else if (notificationType == "asr") {
-        addnotificationAlarm("العصر",asrTime);
-        addAzanAlarm("العصر",asrTime);
+        addnotificationAlarm("العصر",asrTime,asrReqNum.notification);
+        addAzanAlarm("العصر",asrTime,asrReqNum.azan);
 }else if (notificationType == "maghrib") {
-        addnotificationAlarm("المغرب",maghribTime);
-        addAzanAlarm("المغرب",maghribTime);
+        addnotificationAlarm("المغرب",maghribTime,maghribReqNum.notification);
+        addAzanAlarm("المغرب",maghribTime,maghribReqNum.azan);
 }else if (notificationType == "isha") {
-       addnotificationAlarm("العشاء",ishaTime);
-addAzanAlarm("العشاء",ishaTime); 
+       addnotificationAlarm("العشاء",ishaTime,ishaReqNum.notification);
+       addAzanAlarm("العشاء",ishaTime,ishaReqNum.azan);  
 };
 
 // 
- // var testTime = "22:20";
- // var testTime2 = "22:24";
- // var testTime3 = "22:28";
-// 
- // addnotificationAlarm("testTime",testTime);
- // addAzanAlarm("testTime",testTime);
- // addnotificationAlarm("testTime2",testTime2);
- // addAzanAlarm("testTime2",testTime2);
+ // var testTime = "21:45";
+  // var testTime2 = "21:50";
+ // // var testTime3 = "22:28";
+// // 
+ // addnotificationAlarm("testTime",testTime,700);
+ // addAzanAlarm("testTime",testTime,750);
+ // addnotificationAlarm("testTime2",testTime2,800);
+ // addAzanAlarm("testTime2",testTime2,850);
  // addnotificationAlarm("testTime3",testTime3);
  // addAzanAlarm("testTime3",testTime3);
 
@@ -121,10 +121,15 @@ setTimeout(function(){
       Ti.Android.stopService(serviceIntent);
 },10000);
 
-function addAzanAlarm(title, time) {
+function addAzanAlarm(title, time,requestNumber) {
 
   if (checkTime(time)) {
     setTimeout(function () {
+          try{
+              _alarmManager.cancelAlarmService(requestNumber); 
+      }catch(ex){
+           
+      }
       var randomNumber = util.getRandomInt(1, 2000);
       var DateToday = new Date();
       //var newTime = timeConvertor(time);
@@ -150,9 +155,14 @@ function addAzanAlarm(title, time) {
   };
   Ti.API.info('Check Time Azan ' + title + " " + time, checkTime(time));
 }
-function addnotificationAlarm(title, time) {
+function addnotificationAlarm(title, time,requestNumber) {
   if (checkTime(time)) {
     setTimeout(function () {
+          try{
+            
+      }catch(ex){
+             _alarmManager.cancelAlarmService(requestNumber); 
+      };
       var randomNumber = util.getRandomInt(2000, 4000);
       var DateToday = new Date();
       //var newTime = timeConvertor(time);

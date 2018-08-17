@@ -1,6 +1,9 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
 var geo = require('ti.geolocation.helper');
+var util = require("util");
+var _alarmModule = require('bencoding.alarmmanager');
+var _alarmManager = _alarmModule.createAlarmManager();
 var data=[
 				{title:"الفجر",time:"03:26",type:"ص"},
 				{title:"الشروق",time:"05:04",type:"ص"},
@@ -30,6 +33,7 @@ Ti.App.addEventListener('setServices',function(){
       Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
       Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
       Ti.App.Properties.setString("LocationIndicator","City");
+      AddServices();
       
       
 });
@@ -50,6 +54,7 @@ function success(_location) {
                   Ti.API.info('Alloy.Globals.userLat',Alloy.Globals.userLat);
                   Ti.API.info('Alloy.Globals.userLon',Alloy.Globals.userLon);
                   Ti.App.Properties.setString("LocationIndicator","GPS");
+                  AddServices();
                   toast("تم التحديد عن طريق GPS بنجاح",args.win);
                   
             }
@@ -58,3 +63,39 @@ function success(_location) {
                   console.error("Location error: " + _error);
             }
 
+function AddServices() {
+
+     var randomNumber = util.getRandomInt(1, 2000);
+      var now = new Date();
+      Ti.API.info('now', now);
+      _alarmManager.addAlarmService({
+        service: 'com.digitaldesign.Zakerni.AddservicesService',
+        requestCode: randomNumber,
+        year: now.getFullYear(),
+        month: now.getMonth(),
+        day: now.getDate(),
+        hour: now.getHours(),
+        minute: now.getMinutes(),
+        forceRestart: true });
+      var randomNumber = util.getRandomInt(1, 2000);
+      var nextday = Number(now.getDate() + 1);
+      Ti.API.info('nextday', nextday);
+      try{
+             _alarmManager.cancelAlarmService(1000); 
+      }catch(ex){
+            
+      }
+      _alarmManager.addAlarmService({
+        service: 'com.digitaldesign.Zakerni.AddservicesService',
+        requestCode: 1000,
+      year: now.getFullYear(),
+        month: now.getMonth(),
+        day: Number(nextday),
+        hour: Number("1"),
+        minute: Number("10"),
+        forceRestart: true,
+
+        repeat: 86400000 });
+        
+
+  }

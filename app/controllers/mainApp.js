@@ -60,7 +60,7 @@ var _alarmManager = _alarmModule.createAlarmManager();
       Ti.API.info('now', now);
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        //requestCode: randomNumber,
+        requestCode: randomNumber,
         year: now.getFullYear(),
         month: now.getMonth(),
         day: now.getDate(),
@@ -74,9 +74,14 @@ var _alarmManager = _alarmModule.createAlarmManager();
       var randomNumber = util.getRandomInt(1, 2000);
       var nextday = Number(now.getDate() + 1);
       Ti.API.info('nextday', nextday);
+      try{
+             _alarmManager.cancelAlarmService(1000); 
+      }catch(ex){
+            
+      }
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        requestCode: randomNumber,
+        requestCode: 1000,
 
         year: now.getFullYear(),
         month: now.getMonth(),

@@ -1,7 +1,7 @@
 // Arguments passed into this controller can be accessed via the `$.args` object directly or:
 var args = $.args;
 var util = require("util");
-   var tools = require('bencoding.android.tools');
+  var tools = require('bencoding.android.tools');
 var _alarmModule = require('bencoding.alarmmanager');
 Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
 Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
@@ -45,9 +45,14 @@ function AddServices() {
       var randomNumber = util.getRandomInt(1, 2000);
       var nextday = Number(now.getDate() + 1);
       Ti.API.info('nextday', nextday);
+      try{
+             _alarmManager.cancelAlarmService(1000); 
+      }catch(ex){
+            
+      }
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        requestCode: randomNumber,
+        requestCode: 1000,
       year: now.getFullYear(),
         month: now.getMonth(),
         day: Number(nextday),

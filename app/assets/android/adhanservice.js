@@ -44,7 +44,7 @@ function setNotification(alarm){
         when : new Date().getTime(),
         icon: Ti.App.Android.R.drawable.appicon,
         flags :  Titanium.Android.FLAG_AUTO_CANCEL | Titanium.Android.FLAG_SHOW_LIGHTS | Titanium.Android.FLAG_ONLY_ALERT_ONCE,
-        sound: Ti.Filesystem.getResRawDirectory() + 'sound.mp3',
+        sound: Ti.Filesystem.getResRawDirectory() + 'sound',
         //sound: Ti.Filesystem.getResRawDirectory() + 'sound.mp3',
         channelId: 'my_channel2',
         visibility:Titanium.Android.VISIBILITY_PUBLIC
@@ -54,12 +54,12 @@ function setNotification(alarm){
     var notification = Ti.Android.createNotification(notificationOptions);
     var randomNumber = util.getRandomInt(1,2000);
     Ti.API.info('Titanium.Platform.Android',Titanium.Platform.Android.API_LEVEL);
-    if (Number(Titanium.Platform.Android.API_LEVEL) < Number("23")) {
-          Ti.API.info('Titanium.Platform.Android.API_LEVEL < 23');
-    notification.sound = Ti.Filesystem.getResRawDirectory() + 'sound.mp3';
-    }else{
-          Ti.API.info('Titanium.Platform.Android.API_LEVEL > 23');
-    }
+    // if (Number(Titanium.Platform.Android.API_LEVEL) < Number("23")) {
+          // Ti.API.info('Titanium.Platform.Android.API_LEVEL < 23');
+    // notification.sound = Ti.Filesystem.getResRawDirectory() + 'sound.mp3';
+    // }else{
+          // Ti.API.info('Titanium.Platform.Android.API_LEVEL > 23');
+    // }
     Ti.Android.NotificationManager.notify(1, notification);
 
 Ti.Media.vibrate([0,100,100,200,100,100,200,100,100,200]);
