@@ -32,7 +32,7 @@ setTimeout(function(){
 function pickTime(){
       
       
-      picker.showTimePickerDialog({callback:ChangeTime});
+     // picker.showTimePickerDialog({callback:ChangeTime});
 }
 // _alarmManager.addAlarmService({
     // service:'com.dd.Zakerni.BackgroundNotificationService',

@@ -29,7 +29,7 @@ function AddServices() {
       Alloy.Globals.userLat = Ti.App.Properties.getString("cLat");
       Alloy.Globals.userLon = Ti.App.Properties.getString("cLon");
     Alloy.Globals.launchCount = Ti.App.Properties.getBool("Launchcount");
-    if (Alloy.Globals.launchCount == true) {
+  //  if (Alloy.Globals.launchCount == true) {
       var randomNumber = util.getRandomInt(1, 2000);
       var now = new Date();
       Ti.API.info('now', now);
@@ -45,14 +45,10 @@ function AddServices() {
       var randomNumber = util.getRandomInt(1, 2000);
       var nextday = Number(now.getDate() + 1);
       Ti.API.info('nextday', nextday);
-      try{
-             _alarmManager.cancelAlarmService(1000); 
-      }catch(ex){
-            
-      }
+     
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        requestCode: 1000,
+        requestCode: randomNumber,
       year: now.getFullYear(),
         month: now.getMonth(),
         day: Number(nextday),
@@ -69,10 +65,10 @@ function AddServices() {
           var x={title:"ذكرني",img:"mutooncat"};
             Alloy.Globals.Navigator.open("mainApp",x);
     },1000);
-    } else {
+   // } else {
           
-    };
+    };//
     //Alloy.Globals.loading.hide();
     
-  }
+  //}
  		Ti.API.info(Ti.App.Properties.getString("cLat")+"\n"+Ti.App.Properties.getString("cLon")+"\n"+Ti.App.Properties.getString("cTitle"));

@@ -125,11 +125,7 @@ function addAzanAlarm(title, time,requestNumber) {
 
   if (checkTime(time)) {
     setTimeout(function () {
-          try{
-              _alarmManager.cancelAlarmService(requestNumber); 
-      }catch(ex){
-           
-      }
+         
       var randomNumber = util.getRandomInt(1, 2000);
       var DateToday = new Date();
       //var newTime = timeConvertor(time);
@@ -158,16 +154,9 @@ function addAzanAlarm(title, time,requestNumber) {
 function addnotificationAlarm(title, time,requestNumber) {
   if (checkTime(time)) {
     setTimeout(function () {
-          try{
-            
-      }catch(ex){
-             _alarmManager.cancelAlarmService(requestNumber); 
-      };
+          
       var randomNumber = util.getRandomInt(2000, 4000);
       var DateToday = new Date();
-      //var newTime = timeConvertor(time);
-      //Ti.API.info('newTime', newTime);
-     // var timevalue = newTime.split(' ')[0];
       var hour = time.split(':')[0];
       var minute = time.split(':')[1];
       var newmin = Number(minute) - 2;

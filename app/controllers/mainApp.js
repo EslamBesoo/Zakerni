@@ -54,7 +54,7 @@ var _alarmManager = _alarmModule.createAlarmManager();
   function AddServices() {
 
     Alloy.Globals.launchCount = Ti.App.Properties.getBool("Launchcount");
-    if (Alloy.Globals.launchCount == true) {
+  //  if (Alloy.Globals.launchCount == true) {
       var randomNumber = util.getRandomInt(1, 2000);
       var now = new Date();
       Ti.API.info('now', now);
@@ -74,14 +74,10 @@ var _alarmManager = _alarmModule.createAlarmManager();
       var randomNumber = util.getRandomInt(1, 2000);
       var nextday = Number(now.getDate() + 1);
       Ti.API.info('nextday', nextday);
-      try{
-             _alarmManager.cancelAlarmService(1000); 
-      }catch(ex){
-            
-      }
+     
       _alarmManager.addAlarmService({
         service: 'com.digitaldesign.Zakerni.AddservicesService',
-        requestCode: 1000,
+        requestCode: randomNumber,
 
         year: now.getFullYear(),
         month: now.getMonth(),
@@ -95,6 +91,6 @@ var _alarmManager = _alarmModule.createAlarmManager();
 
       Ti.App.Properties.setBool("Launchcount", false);
       Alloy.Globals.launchCount = Ti.App.Properties.getBool("Launchcount");
-    } else {};
+    //} else {};
     //Alloy.Globals.loading.hide();
   }
